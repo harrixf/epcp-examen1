@@ -15,30 +15,35 @@ var datos = {% autoescape false %}{{ tabla }}{% endautoescape %};
 
 <br></br>
 <table>
-	<tr>Sexo</tr>
-	<tr>Edad</tr>
-	<tr>2016</tr>
-	<tr>2015</tr>
-	<tr>2014</tr>
-	<tr>2013</tr>
-	<tr>2012</tr>
-	<tr>2011</tr>
-	<tr>2010</tr>
-</table>
+	<tr>
+	<th>>Sexo</th>
+	<th>Edad</th>
+	<th>2016</th>
+	<th>2015</th>
+	<th>2014</th>
+	<th>2013</th>
+	<th>2012</th>
+	<th>2011</th>
+	<th>2010</th>
+</tr>
+
 {% for row in tabla %}
-	{% if loop.index == 1 %}
+<tr>
+{% if loop.index == 1 %}
 {% for cell in row  %}
-			{{ cell }}
-		{% endfor %}
+<td>{{ cell }}</td>
+{% endfor %}
+</tr>
+<tr>
 	{% else %}
-		{% for cell in row  %}
-			{{ cell }}
-		{% endfor %}
-	{% endif %}</td>
-	</tr>
+{% for cell in row  %}
+<td>{{ cell }}</td>
+{% endfor %}
+{% endif %}
+</tr>
 	
 {% endfor %}
-
+</table>
 <div id="grafico"></div>
 
 
